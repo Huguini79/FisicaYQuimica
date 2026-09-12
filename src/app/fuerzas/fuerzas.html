@@ -6,7 +6,11 @@
 <br>
 <label>Introduce el grado de inclinación del suelo: </label>
 <input type="number" #grado_inclinacion>
-<button (click)="Calcular(coeficiente_rozamiento.value, masa_objeto.value, grado_inclinacion.value)">Calcular</button>
+<br>
+<label>Duración en segundos de cuanto va a durar el movimiento del objeto: </label>
+<input type="number" #segundos_mov>
+<br>
+<button (click)="Calcular(coeficiente_rozamiento.value, masa_objeto.value, grado_inclinacion.value, segundos_mov.value)">Calcular</button>
 
 @if (iniciado)
 {
@@ -18,7 +22,7 @@
     <br>
     <label>coeficiente de rozamiento = {{ cr }}</label>
     <br>
-    <label>Grado de inclinación del suelo: {{ gri }} ºC</label>
+    <label>Grado de inclinación del suelo: {{ gri }} º</label>
     <br>
     <label>Pt = {{ m }} * {{ g }} = {{ Pt }} N | Peso Total</label>
     <br>
@@ -41,5 +45,7 @@
     } @else 
     {
         <label>a = {{ a }} m/s^2 | Aceleración</label>
+        <br>
+        <label>V = {{ a }} * {{ t }} = {{ V }} m/s</label>
     }
 }

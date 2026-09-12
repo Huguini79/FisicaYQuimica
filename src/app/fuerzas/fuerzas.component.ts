@@ -21,10 +21,11 @@ export class Fuerzas
     g = 9.8;
     a = 0;
     Ft = 0;
-    temp = 0;
+    t = 0;
+    V = 0;
     iniciado = false;
 
-    Calcular(coeficiente_rozamiento: any, masa_objeto: any, grado_inclinacion: any)
+    Calcular(coeficiente_rozamiento: any, masa_objeto: any, grado_inclinacion: any, segundos_mov: any)
     {
         if (coeficiente_rozamiento < 0 || coeficiente_rozamiento > 1)
         {
@@ -43,6 +44,8 @@ export class Fuerzas
             this.m = masa_objeto;
             this.Ft = this.Px - this.Fr;
             this.a = this.Ft / this.m;
+            this.t = segundos_mov;
+            this.V = this.a * this.t;
             this.ref.markForCheck();
         }
     }
