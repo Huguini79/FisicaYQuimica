@@ -1,0 +1,45 @@
+<label>Introduce el coeficiente de rozamiento del suelo: </label>
+<input type="number" #coeficiente_rozamiento>
+<br>
+<label>Introduce la masa del objeto: </label>
+<input type="number" #masa_objeto>
+<br>
+<label>Introduce el grado de inclinación del suelo: </label>
+<input type="number" #grado_inclinacion>
+<button (click)="Calcular(coeficiente_rozamiento.value, masa_objeto.value, grado_inclinacion.value)">Calcular</button>
+
+@if (iniciado)
+{
+    <br>
+    <br>
+    <br>
+    <br>
+    <label>m = {{ m }} kg | Masa del objeto en el plano</label>
+    <br>
+    <label>coeficiente de rozamiento = {{ cr }}</label>
+    <br>
+    <label>Grado de inclinación del suelo: {{ gri }} ºC</label>
+    <br>
+    <label>Pt = {{ m }} * {{ g }} = {{ Pt }} N | Peso Total</label>
+    <br>
+    <label>Px = {{ Pt }} * sin({{ gri }}) = {{ Px }} N | Componente paralelo del Peso Total</label>
+    <br>
+    <label>Py = {{ Pt }} * cos({{ gri }}) = {{ Py }} N | Componente perpendicular del Peso Total</label>
+    <br>
+    <label>N = {{ Pt }} * cos ({{ gri }}) = {{ N }} N | Fuerza Normal</label>
+    <br>
+    <label>Fr = {{ cr }} * {{ N }} = {{ Fr }} N | Fuerza de Rozamiento</label>
+    <br>
+    <label>Ft = {{ Px }} - {{ Fr }} = {{ Ft }} N | Fuerza Total</label>
+    <br>
+    @if (a == 0)
+    {
+        <label>a = {{ a }} m/s^2 | Aceleración</label>
+        <br>
+        <h2>ACELERACIÓN NULA</h2>
+
+    } @else 
+    {
+        <label>a = {{ a }} m/s^2 | Aceleración</label>
+    }
+}
